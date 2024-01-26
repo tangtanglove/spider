@@ -1,10 +1,10 @@
 package resource
 
 import (
-	"github.com/quarkcloudio/quark-go/v2/pkg/app/admin/service/actions"
 	"github.com/quarkcloudio/quark-go/v2/pkg/app/admin/service/searches"
 	"github.com/quarkcloudio/quark-go/v2/pkg/app/admin/template/resource"
 	"github.com/quarkcloudio/quark-go/v2/pkg/builder"
+	"github.com/quarkcloudio/quark-lite/action"
 	"github.com/quarkcloudio/quark-lite/model"
 )
 
@@ -33,7 +33,11 @@ func (p *Data) Fields(ctx *builder.Context) []interface{} {
 	return []interface{}{
 		field.ID("id", "ID"),
 
-		field.Text("name", "名称"),
+		field.Text("realname", "姓名"),
+
+		field.Text("email", "邮箱"),
+
+		field.Text("company", "单位"),
 
 		field.Datetime("created_at", "创建时间"),
 	}
@@ -49,15 +53,6 @@ func (p *Data) Searches(ctx *builder.Context) []interface{} {
 // 行为
 func (p *Data) Actions(ctx *builder.Context) []interface{} {
 	return []interface{}{
-		actions.CreateLink(),
-		actions.BatchDelete(),
-		actions.BatchDisable(),
-		actions.BatchEnable(),
-		actions.EditLink(),
-		actions.Delete(),
-		actions.FormSubmit(),
-		actions.FormReset(),
-		actions.FormBack(),
-		actions.FormExtraBack(),
+		action.GetData(),
 	}
 }

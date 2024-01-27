@@ -35,3 +35,27 @@ func (m *Data) Seeder() {
 	}
 	db.Client.Create(&menuSeeders)
 }
+
+func (m *Data) Insert(data *Data) error {
+	if m.IsExist(data) {
+		return nil
+	}
+
+	return db.Client.Create(data).Error
+}
+
+func (m *Data) IsExist(data *Data) bool {
+	var model *Data
+
+	db.Client.
+		Where("realname", data.Realname).
+		Where("company", data.Company).
+		Where("email", data.Email).
+		First(&model)
+
+	if model.Id > 0 {
+		return true
+	}
+
+	return false
+}

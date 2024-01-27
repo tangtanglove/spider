@@ -24,6 +24,9 @@ func (p *Data) Init(ctx *builder.Context) interface{} {
 	// 分页
 	p.PerPage = 10
 
+	// 是否具有导出功能
+	p.WithExport = true
+
 	return p
 }
 
@@ -46,7 +49,7 @@ func (p *Data) Fields(ctx *builder.Context) []interface{} {
 // 搜索
 func (p *Data) Searches(ctx *builder.Context) []interface{} {
 	return []interface{}{
-		searches.Input("name", "名称"),
+		searches.Input("realname", "姓名"),
 	}
 }
 

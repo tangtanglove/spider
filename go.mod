@@ -14,6 +14,7 @@ require (
 	github.com/antchfx/htmlquery v1.2.3 // indirect
 	github.com/antchfx/xmlquery v1.2.4 // indirect
 	github.com/antchfx/xpath v1.1.8 // indirect
+	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 // indirect
 	github.com/casbin/casbin/v2 v2.71.1 // indirect
 	github.com/casbin/gorm-adapter/v3 v3.18.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
